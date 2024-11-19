@@ -110,3 +110,8 @@ def ensure_json(obj: Dict[str, Any], key: str) -> Dict[str, Any]:
     if isinstance(obj[key], str):
         obj[key] = json.loads(obj[key])
     return obj[key]
+
+def load_jsonl(file_path):
+    with open(file_path, 'r') as f:
+        data = [json.loads(line) for line in f.readlines()]
+    return data
